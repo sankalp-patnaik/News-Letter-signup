@@ -3,7 +3,9 @@ const bodyParser=require("body-parser");
 const app=express();
 const request=require("request");
 const https=require("https");
+const listId="ff1fb09624";
 
+const apikey="ab5136a35660d3c38c9c49f3e3f59b3f-us10";
 
 //Here We using a Method from express:- app.use(express.static("name of the folder here Name of the folder is Public"))
 //In Public Folder stored local files like css folder, Images folder 
@@ -30,16 +32,16 @@ app.post("/",function(req,res){
                 merge_field:{ 
                    FNAME:firstName, 
                    LNAME:lastname
-                }
-            }
-        ]
+                },
+            },
+        ],
     };
     //converting the data into String that is in the the format JSON
     const Jsondata=JSON.stringify(data);
-    const url="https://us10.api.mailchimp.com/3.0/lists/ff1fb09624"
+    const url="https://us10.api.mailchimp.com/3.0/lists/"+listId;
     const options={
         method:"POST",
-        auth:"sankalp1:ab5136a35660d3c38c9c49f3e3f59b3f-us10"
+        auth:"sankalp1:"+apikey,
     }
    const request= https.request(url,options,function(response){
        if(response.statusCode===200)
@@ -52,9 +54,9 @@ app.post("/",function(req,res){
        response.on("data",function(data){
            console.log(JSON.parse(data));
            
-       })
+       });
 
-    })
+    });
     request.write(Jsondata);
     request.end();
 });
