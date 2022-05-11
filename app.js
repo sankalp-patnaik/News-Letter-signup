@@ -3,7 +3,6 @@ const bodyParser=require("body-parser");
 const app=express();
 const request=require("request");
 const https = require("https");
-require("dotenv").config();
 const port = process.env.PORT ? process.env.PORT : 3000;
 const apiKey = process.env.MAILCHIMP_API_KEY;
 const listId = process.env.LIST_ID;
