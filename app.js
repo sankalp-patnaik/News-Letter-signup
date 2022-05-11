@@ -5,7 +5,7 @@ const request=require("request");
 const https=require("https");
 const listId="ff1fb09624";
 
-const apikey="2eef41e128b4ca9abd4160be98d90754-us10";
+
 
 //Here We using a Method from express:- app.use(express.static("name of the folder here Name of the folder is Public"))
 //In Public Folder stored local files like css folder, Images folder 
@@ -41,7 +41,7 @@ app.post("/",function(req,res){
     const url="https://us10.api.mailchimp.com/3.0/lists/"+listId;
     const options={
         method:"POST",
-        auth:"sankalp1:"+apikey,
+        auth:"sankalp1:2eef41e128b4ca9abd4160be98d90754-us10",
     }
    const request= https.request(url,options,function(response){
        if(response.statusCode===200)
