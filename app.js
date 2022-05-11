@@ -3,7 +3,7 @@ const bodyParser=require("body-parser");
 const app=express();
 const request=require("request");
 const https = require("https");
-const port = process.env.PORT ? process.env.PORT : 3000;
+//const port = process.env.PORT ? process.env.PORT : 3000;
 const apiKey = "da03d5395fcf7c9a0c5eb6846ca09d10-us10";
 const listId = "ff1fb09624";
 
@@ -70,7 +70,7 @@ app.post("/success",function(req,res){
 // app.post("/success",function(req,res){
 //     res.redirect("/");
 // })
-app.listen(port,function()
+app.listen(process.env.PORT||3000,function()
 {
     console.log("Server Is Running on Port 3000");
 })
