@@ -2,9 +2,11 @@ const express=require("express");
 const bodyParser=require("body-parser");
 const app=express();
 const request=require("request");
-const https=require("https");
-const listId="ff1fb09624";
-
+const https = require("https");
+require("dotenv").config();
+const port = process.env.PORT ? process.env.PORT : 3000;
+const apiKey = process.env.MAILCHIMP_API_KEY;
+const listId = process.env.LIST_ID;
 
 
 //Here We using a Method from express:- app.use(express.static("name of the folder here Name of the folder is Public"))
@@ -41,7 +43,7 @@ app.post("/",function(req,res){
     const url="https://us10.api.mailchimp.com/3.0/lists/"+listId;
     const options={
         method:"POST",
-        auth:"sankalp1:2eef41e128b4ca9abd4160be98d90754-us10",
+        auth:"sankalp1:"+apiKey,
     }
    const request= https.request(url,options,function(response){
        if(response.statusCode===200)
@@ -69,7 +71,7 @@ app.post("/success",function(req,res){
 // app.post("/success",function(req,res){
 //     res.redirect("/");
 // })
-app.listen(process.env.PORT||3000,function()
+app.listen(port,function()
 {
     console.log("Server Is Running on Port 3000");
 })
