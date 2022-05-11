@@ -4,8 +4,8 @@ const app=express();
 const request=require("request");
 const https = require("https");
 const port = process.env.PORT ? process.env.PORT : 3000;
-const apiKey = process.env.MAILCHIMP_API_KEY;
-const listId = process.env.LIST_ID;
+const apiKey = "da03d5395fcf7c9a0c5eb6846ca09d10-us10";
+const listId = "ff1fb09624";
 
 
 //Here We using a Method from express:- app.use(express.static("name of the folder here Name of the folder is Public"))
