@@ -28,8 +28,8 @@ app.post("/",function(req,res){
                 email_address:Email,
                 status:"subscribed",
                 merge_field:{ 
-                   "FNAME":firstName, 
-                    "LNAME":lastname
+                   FNAME:firstName, 
+                    LNAME:lastname
                 }
             }
         ]
