@@ -29,7 +29,7 @@ app.post("/",function(req,res){
                 status:"subscribed",
                 merge_field:{ 
                    "FNAME":firstName, 
-                    LNAME:lastname
+                    "LNAME":lastname
                 }
             }
         ]
