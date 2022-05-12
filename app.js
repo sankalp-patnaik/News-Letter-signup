@@ -30,13 +30,15 @@ app.post("/",function(req,res){
             {
                 email_address:Email,
                 status:"subscribed",
-                merge_field:{ 
+                merge_field:
+                { 
                    FNAME:firstName, 
                    LNAME:lastname
                 },
             },
         ],
     };
+    console.log(data);
     //converting the data into String that is in the the format JSON
     const Jsondata=JSON.stringify(data);
     const url="https://us10.api.mailchimp.com/3.0/lists/"+listId;
