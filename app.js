@@ -3,10 +3,12 @@ const bodyParser=require("body-parser");
 const app=express();
 const request=require("request");
 const https = require("https");
-//const port = process.env.PORT ? process.env.PORT : 3000;
-const apiKey = "406ebab7c3b0d75f927254b3cf85d8ac-us10";
-const listId = "ff1fb09624";
 
+require("dotenv").config();
+
+const apiKey = process.env.API_KEY;
+const listId =process.env.LIST_ID;
+const port=process.env.PORT?process.env.PORT:3000;
 
 //Here We using a Method from express:- app.use(express.static("name of the folder here Name of the folder is Public"))
 //In Public Folder stored local files like css folder, Images folder 
@@ -72,12 +74,7 @@ app.post("/success",function(req,res){
 // app.post("/success",function(req,res){
 //     res.redirect("/");
 // })
-app.listen(process.env.PORT||3000,function()
+app.listen(port,function()
 {
     console.log("Server Is Running on Port 3000");
 })
-//ApI Key:- 406ebab7c3b0d75f927254b3cf85d8ac-us10
-
-//List Id or Audience Id:- ff1fb09624
-
-//${dc}
